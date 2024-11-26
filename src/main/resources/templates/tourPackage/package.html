@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>여행 코스</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=<appkey>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <style>
+        .image{
+            height: 250px;
+        }
+      .scroll-oneTour {
+          height: 400px; /* Set the height of the container */
+          
+          overflow-y: scroll; /* Enable vertical scrolling */
+          /* border: 1px solid #ddd; */
+      }
+      .scroll-oneTour::-webkit-scrollbar {
+        width: 10px;
+      }
+      .scroll-oneTour::-webkit-scrollbar-thumb {
+        background: #888; /* Color of the scrollbar thumb */
+        border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+      }
+
+      .scroll-oneTour::-webkit-scrollbar-thumb:hover {
+          background: #555; /* Color of the scrollbar thumb on hover */
+      }
+      
+        .navbar-menu:hover .navbar-menu-list {
+            display: block;
+        }
+    </style>
+</head>
+<body style="font-family: Nanum Myeongjo, serif;">
+  <nav class="navbar navbar-expand-lg d-flex ps-3 pe-3 shadow-md fixed-top" style="background-color: rgb(253, 249, 251);">
+    <div class="container-fluid" id="navbar"></div>
+  </nav>
+  
+  <div class="container-fluid p-5 mt-5">
+    <div class="d-flex flex-wrap justify-content-center align-items-center">
+      <div class="w-100 d-flex justify-content-center align-items-center pt-5 pb-5 mb-2 rounded bg-opacity-10 bg-primary">
+        <a id="prevPage" class="d-none d-lg-flex col-2 align-items-center text-decoration-none">
+          <img src="/static/visual/package/packPrev.png" class="img-fluid" style="height: 100px;">
+          <span class="fw-bold">이전</span>
+        </a>
+        <div class="col-12 col-lg-8 d-flex justify-content-center align-items-center">
+          <img src="/static/visual/package/travel.png" class="img-fluid" style="height: 100px;">
+          <h1 style="color:cornflowerblue;">
+            서울 여행: 코스<span id="packageId"></span>
+          </h1>
+        </div>
+        <a id="nextPage" class="d-none d-lg-flex col-2 align-items-center justify-content-end text-decoration-none">
+          <span class="fw-bold">다음</span>
+          <img src="/static/visual/package/packNext.png" class="img-fluid" style="height: 100px;">
+        </a>
+      </div>
+      <div class=" w-100 justify-content-end d-flex align-items-center">
+        <strong class="me-2">점수 </strong>
+        <div class="progress col-2" role="progressbar" aria-label="Info example" aria-valuenow="50" aria-valuemin="0" aria-valuemax="100">
+          <div id="aver-rating" class="progress-bar bg-warning text-dark" style="width: 90%">4.5/5</div>
+        </div>
+        <div id="numOfRating" class="ms-2" style="font-size: small;">3개 이용 후기</div>
+      </div>
+      <hr class="w-100 mb-3">
+      <div class="d-flex w-100 align-items-center">
+        <div id="carouselExampleIndicators" class="col-12 col-lg-8 p-3 carousel slide">
+          <div id="imgCard" class="carousel-inner">
+            
+          </div>
+          <button id="prev" class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Previous</span>
+          </button>
+          <button id="next" class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="visually-hidden">Next</span>
+          </button>
+        </div>
+        <div class="d-none d-lg-flex col-4 m-3 p-3 d-flex flex-wrap align-content-between rounded border bg-opacity-10 bg-info ">
+          <div class="d-flex justify-content-between">
+            <img src="/static/visual/package/icon1.png" class="col-1 img-fluid">
+            <img src="/static/visual/package/icon2.png" class="col-1 img-fluid">
+          </div>
+          <div class="d-inline ">
+            <div class="w-100 d-flex justify-content-center">
+              <h5 id="package-title" class="col-10 text-center fw-bold" style="color:darkblue; font-family:'Times New Roman', Times, serif;">
+                
+              </h5>
+            </div>
+            <ul class="w-100" style="font-size: small;">
+              <li><strong>1일차</strong> <br> 
+                <span id="main-day1">
+                  
+                </span>
+              </li>
+              <li><strong>2일차</strong> <br> 
+                <span id="main-day2">
+                  
+                </span>
+              </li>
+            </ul>
+          </div>
+          
+          <div class="w-100 d-flex justify-content-center">
+              <h4 class="text-secondary"><s id="origin-price"></s></h4>
+              <h1 id="current-price" class="fw-bold text-danger"></h1>
+          </div>
+          <div class="d-flex justify-content-center w-100 m-2">
+            <a href="/travel/booking" target="_blank" class="btn btn-primary p-3">여행코스 예약</a>
+          </div>
+        </div>
+      </div>
+      <hr class="w-100 ">
+      <div class="w-100">
+        <div class="d-flex justify-content-between">
+          <img src="/static/visual/package/frame1.png" class="col-1 img-fluid">
+          <h1 class="col-10 text-center fw-bold" style="color: darkslateblue;">스켈줄</h1>
+          <img src="/static/visual/package/frame2.png" class="col-1 img-fluid">
+        </div>
+        <div class="d-flex w-100 justify-content-center flex-wrap">
+          <div class="col-10 d-flex fw-bold fs-5" style="background-color: aliceblue;">
+            <div class="d-none d-lg-flex col-2 border border-2 border-dark justify-content-center p-2">
+              
+            </div>
+            <div class="col-12 col-lg-10 d-flex border border-2 border-dark justify-content-center p-2">
+              세부 활동
+            </div>
+          </div>
+          <hr class="w-75">
+          <div class="col-10 d-flex bg-light flex-wrap">
+            <div class="d-none d-lg-flex col-2 border rounded p-2 justify-content-center">
+              1일차
+            </div>
+            <div id="detail-day1" class="col-12 col-lg-10 d-flex border rounded p-2">
+              
+            </div>
+            <div class="d-none d-lg-flex col-2 border rounded justify-content-center p-2">
+              2일차
+            </div>
+            <div id="detail-day2" class="col-12 col-lg-10 d-flex border rounded p-2">
+              
+            </div>
+          </div>
+        </div>
+        <div class="d-flex justify-content-between">
+          <img src="/static/visual/package/frame3.png" class="col-1 img-fluid">
+          <img src="/static/visual/package/frame4.png" class="col-1 img-fluid">
+        </div>
+      </div>
+    </div>
+  </div>
+  <div id="video-system" class="fixed-top">  
+  </div>
+  <script src="/static/js/package/package.js"></script>
+  <script src="/static/js/navbar.js"></script>
+  <script src="/static/js/call.js"></script>
+</body>
+</html>

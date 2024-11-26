@@ -1,0 +1,94 @@
+.navbar {
+    width: 100%;
+    height: var(--navbar-height);
+    position: fixed;
+    top: 0;
+    right: 0;
+    padding: 0 3rem;
+    z-index: 3;
+  }
+  
+  .profile-image {
+    width: 40px;
+    height: 40px;
+    border: solid 1px rgb(107, 96, 96);
+    border-radius: 50%;
+  }
+  .bar-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+  }
+  .btn-sm {
+    border: none;
+  }
+  .navbar-collapse {
+    margin: 0 10vw;
+    padding: 0 10vw;
+  }
+  .blog-header {
+    box-sizing: border-box;
+    background-image: url("../image/bukchon-hanok-2.jpg");
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.4);
+    background-blend-mode: darken;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+    z-index: 2;
+    position: static;
+    padding: 50px;
+  }
+  .container {
+    z-index: 1;
+  }
+  .col {
+    /* margin-top: 20px; */
+  }
+  .blog-header-title-blog {
+    color: white;
+    font-size: 5rem;
+    text-align: center;
+  }
+  .blog-header-title-desc {
+    color: rgb(25, 214, 173);
+    font-size: 4rem;
+    text-align: center;
+  }
+  .pagination-nav {
+    margin: 100px 0;
+  }
+  .responsive-text {
+    font-size: 2vw; /* Kích thước chữ tự động thay đổi theo chiều rộng màn hình */
+  }
+  
+  /* @media (max-width: 1023px) {
+      .blog-header {
+          position: static;
+      }
+  } */
+  
+  @media (max-width: 992px) {
+    /* .navbar {
+      margin-top: 10px;
+    } */
+    .container-fluid {
+      background-color:rgb(248, 248, 248);
+      padding: 3rem;
+      border-radius: 3rem;
+    }
+    .blog-header {
+      padding: 20px;
+      margin-bottom: 20px;
+    }
+    .blog-header-title-blog {
+      font-size: 3rem;
+    }
+    .blog-header-title-desc {
+      font-size: 3rem;
+    }
+  }
+  
+  

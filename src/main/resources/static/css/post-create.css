@@ -1,0 +1,51 @@
+body {
+  font-family: "Nanum Myeongjo", serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.profile-image {
+  width: 40px;
+  height: 40px;
+}
+
+.header-title {
+  margin-top: 110px;
+  margin-bottom: 15px;
+}
+
+.title {
+  width: 45vw;
+  height: 60vh;
+  padding: 10px;
+  border: solid 1px rgb(110, 107, 107);
+  border-radius: 1rem;
+}
+
+.navbar-menu:hover .navbar-menu-list {
+  display: block;
+}
+
+.navbar-menu-list {
+  width: 200px;
+}
+
+.navbar-menu-item {
+  padding: 12px 24px 12px 24px;
+  font-size: 1.2rem;
+}
+
+.btn-search {
+  border: solid 1px rgb(161, 160, 160);
+  border-radius: 5px;
+}
+
+.slide-up {
+  opacity: 0;
+  transform: translateY(100px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.slide-up.visible {
+  opacity: 1;
+  transform: translateY(0);
+}

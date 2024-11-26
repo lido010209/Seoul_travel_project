@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>홈</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    
+    <style>
+        .profile-image {
+            width: 40px;
+            height: 40px;
+        }
+
+        .col-lg-3-5 {
+            flex: 0 0 30%;
+            max-width: 30%;
+        }
+
+        .fixed-message {
+            position: fixed;
+            bottom: 10px;
+            /* Adjust distance from the bottom */
+            right: -35px;
+            /* Adjust distance from the right */
+            cursor: pointer;
+        }
+    </style>
+</head>
+
+<body style="font-family: Nanum Myeongjo, serif;">
+    <div class="bg-dark">
+        <!-- Navbar -->
+        <nav class="navbar navbar-expand-xl fixed-top d-flex ps-3 pe-3">
+            <div class="container-fluid" id="navbar"></div>
+        </nav>
+        <div class="home-header">
+            <div class="d-flex w-75 h-100 justify-content-center align-items-center ps-5">
+                <h1 class="header-title-text">서울에 오신 것을 환영합니다!</h1>
+            </div>
+        </div>
+    </div>
+    <!-- body -->
+    <div class="container mt-5 w-100 ">
+        <!-- package -->
+        <div class="package scroll-block ">
+            <!-- package-title -->
+            <p class="package-item-title text-center">여행코스</p>
+            <p class="package-item-desc text-center fs-1 fs-bold mb-5">서울에서 진행되는 다양한 여행 코스</p>
+            <div class="body-package">
+                <div class="row g-3 d-flex justify-content-center">
+                    <!-- package item -->
+                    <a href="/travel/package/1"
+                        class="body-package-item col col-lg-3-5 col-sm-12 package-custom-shadow me-4 mb-4 text-decoration-none">
+                        <div class="package-image">
+                            <img src="/static/visual/home/롯데타워.jpg" class="w-100 rounded img-fluid"
+                                style="height: 220px;">
+                        </div>
+                        <div class="px-1 h-30">
+                            <p class="pt-1 text-center fs-4 fw-bold ">
+                                서울의 과거와 현재를 걷다: 전통과 현대의 1박 2일 여행
+                            </p>
+                            <div class="package-item-rating">
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                            </div>
+                            <div class=" mt-1 package-item-avg">
+                                <!-- <h5 class="fw-bold text-primary">9.0/10</h5> -->
+                            </div>
+                            <div class="d-flex align-items-center mt-1 package-itme-price">
+                                <i class="fa-regular fa-credit-card fa-xl"></i>
+                                <p class="mb-0 ms-2 fs-5 fw-bold">300.000원</p>
+                            </div>
+                        </div>
+                    </a>
+
+                    <a href="/travel/package/2"
+                        class="body-package-item col col-lg-3-5 col-sm-12 package-custom-shadow me-4 text-decoration-none">
+                        <div class="package-image">
+                            <img src="/static/visual/home/남산타워.jpg" class="w-100 h-60 rounded img-fluid"
+                                style="height: 220px;">
+                        </div>
+                        <div class="px-1 h-30">
+                            <p class="pt-1 text-center fs-4 fw-bold ">
+                                서울의 예술과 전통을 담은 1박 2일 도심 여행
+                            </p>
+                            <div class="package-item-rating">
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                            </div>
+                            <div class=" mt-1 package-item-avg">
+                                <!-- <h5 class="fw-bold text-primary">9.0/10</h5> -->
+                            </div>
+                            <div class="d-flex align-items-center mt-1 package-itme-price">
+                                <i class="fa-regular fa-credit-card fa-xl"></i>
+                                <p class="mb-0 ms-2 fs-5 fw-bold">300.000원</p>
+                            </div>
+                        </div>
+                    </a>
+                    <a href="/travel/package/3"
+                        class="body-package-item col col-lg-3-5 col-sm-12 package-custom-shadow me-4 text-decoration-none">
+                        <div class="package-image">
+                            <img src="/static/visual/home/광화문.jpg" class="w-100 rounded img-fluid"
+                                style="height: 220px;">
+                        </div>
+                        <div class="px-1 h-30">
+                            <p class="pt-1 text-center fs-4 fw-bold ">
+                                서울 전통과 현대를 잇는 1박 2일 여행
+                            </p>
+                            <div class="package-item-rating">
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                                <i class="fa-solid fa-star fa-lg" style="color: #FFD43B;"></i>
+                            </div>
+                            <div class=" mt-1 package-item-avg">
+                                <!-- <h5 class="fw-bold text-primary">4.5/5</h5> -->
+                            </div>
+                            <div class="d-flex align-items-center mt-1 package-item-price">
+                                <i class="fa-regular fa-credit-card fa-xl"></i>
+                                <p class="mb-0 ms-2 fs-5 fw-bold">500.000원</p>
+                            </div>
+                        </div>
+                    </a>
+                    <!-- <div class="w-100 d-flex ">
+                        <button type="submit" class=" btn-detail btn btn-primary btn-lg mx-auto">자세히 보기</button>
+                    </div> -->
+                </div>
+            </div>
+        </div>
+
+        <!-- post -->
+        <div class="post container scroll-block ">
+            <!-- post header -->
+            <p class="post-header-title text-center ">블로그</p>
+            <p class="post-header-desc text-center fs-1 fs-bold mb-5">즐거운 시간을 블로그에 담김</p>
+            <!-- post body -->
+            <div class="row post-content g-4 p-2 ">
+                <div class="col-lg-3 post-owner">
+                    <div>
+                        <img src="/static/visual/home/anhthe.jpg" class=" border border-secondary post-owner-image">
+                    </div>
+                </div>
+                <div class="col-lg-9 post-body">
+                    <p class="post-body-title fs-2 text-center"><i>시티투어 버스 타고, 비 오는 서울 여행</i></p>
+                    <div class="postContent fs-4 limited-text">시티투어 버스 타고, 비 오는 서울 여행
+                        2024.05.05 ~ 2024.05.06 아기 시골쥐의, 서울 여행 1일차 : 광화문광장 - 시티투어버스 매표소 - N서울남산타워 - 청와대 차이들 안녕인사동점 - 조계사
+                        우리
+                        집 꼬마가 남산타워나 청와대를 궁금해해서 어린이날 연휴에 1박2일 서울 여행을 계획했다. 시티투어버스 타는 걸 제일 기대했는데시티투어 버스 타고, 비 오는 서울 여행
+                        2024.05.05 ~ 2024.05.06 아기 시골쥐의, 서울 여행 1일차 : 광화문광장 - 시티투어버스 매표소 - N서울남산타워 - 청와대 차이들 안녕인사동점 - 조계사
+                        우리
+                        집 꼬마가 남산타워나 청와대를 궁금해해서 어린이날 연휴에 1박2일 서울 여행을 계획했다. 시티투어버스 타는 걸 제일 기대했는데
+                    </div>
+                    <div class="fs-3 text-end">- 찬부렁 -</div>
+                </div>
+            </div>
+            <div class="w-100 d-flex mt-5" id="postBtn">
+                <a class=" btn-detail btn btn-primary btn-lg mx-auto text-white text-decoration-none"
+                    href="/travel/post">모두 보기</a>
+            </div>
+
+        </div>
+
+        <!-- travel place -->
+        <div class="body-place mt-5 scroll-block">
+            <p class="post-header-title text-center ">관광지</p>
+            <p class="post-header-desc text-center fs-1 fs-bold mb-5">아름다운 관광지 구경</p>
+            <div class="container mt-md-5">
+                <div class="row">
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mb-4">
+                        <img src="/static/visual/home/광화문.jpg" class="w-100 h-75" alt="">
+                        <div class="px-5">
+                            <p class="text-center mt-3 fs-2">광화문</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mb-4">
+                        <img src="/static/visual/home/post2.jpg" class="w-100 h-75" alt="">
+                        <div class="px-5">
+                            <p class="text-center mt-3 fs-2">남산타워</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mb-4">
+                        <img src="/static/visual/home/post3.jpg" class="w-100 h-75" alt="">
+                        <div class="px-5">
+                            <p class="text-center mt-3 fs-2">한옥마을</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mb-4">
+                        <img src="/static/visual/home/롯데타워.jpg" class="w-100 h-75" alt="">
+                        <div class="px-5">
+                            <p class="text-center mt-3 fs-2">롯데타워</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mb-4">
+                        <img src="/static/visual/home/DDP.jpg" class="w-100 h-75" alt="">
+                        <div class="px-5">
+                            <p class="text-center mt-3 fs-2">동대문디자인플라자 (DDP)</p>
+                        </div>
+                    </div>
+                    <div class="col-lg-4 col-sm-6 col-xs-12 mb-4">
+                        <img src="/static/visual/home/국립중안박물관.jpg" class="w-100 h-75" alt="">
+                        <div class="px-5">
+                            <p class="text-center mt-3 fs-2">국립중앙박물관</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="w-100 d-flex mt-5" id="placeBtn">
+                    <a class=" btn-detail btn btn-primary btn-lg mx-auto text-white text-decoration-none"
+                        href="/travel/tour">자세히 보기</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- footer -->
+    <footer class="footer text-center bg-body-tertiary mt-5">
+        <!-- Grid container -->
+        <div class=" pt-4">
+            <!-- Section: Social media -->
+            <section class="mb-4">
+                <!-- Facebook -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-facebook-f"></i></a>
+
+                <!-- Twitter -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-twitter"></i></a>
+
+                <!-- Google -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-google"></i></a>
+
+                <!-- Instagram -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-instagram"></i></a>
+
+                <!-- Linkedin -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-linkedin"></i></a>
+                <!-- Github -->
+                <a data-mdb-ripple-init class="btn btn-link btn-floating btn-lg text-body m-1" href="#!" role="button"
+                    data-mdb-ripple-color="dark"><i class="fab fa-github"></i></a>
+            </section>
+            <!-- Section: Social media -->
+        </div>
+        <!-- Grid container -->
+
+        <!-- Copyright -->
+        <div class="text-center p-3" style="background-color: rgba(0, 0, 0, 0.05);">
+
+        </div>
+        <!-- Copyright -->
+    </footer>
+    <!-- message -->
+    <div id="user-bot" class="mb-2 me-2 p-3 container-fluid">
+        <div class="sticky-bottom d-flex justify-content-end pe-5 w-100 fixed-message">
+            <a href="#" class="pb-2" id="chat-open">
+                <div class="position-relative">
+                    <img src="/static/visual/home/mes/mes.png" class="img-fluid" style="height: 70px; width: 70px; border-radius: 50%;">
+                    <span id="count-mes" class="d-none position-absolute d-flex align-items-center justify-content-center
+                     top-0 end-0 border rounded-circle text-bg-danger" style="height: 20px; width: 20px; ">
+                        3
+                    </span>
+                </div>
+            </a>
+            <div id="chat-main" class="d-none">
+                <div class="border bg-light rounded" style="height: 480px; width: 350px;">
+                    <div class="d-flex border-bottom shadow-lg p-2 mb-3">
+                        <div class="col-7 ps-3">
+                            <a href="">
+                                <img id="img-mes" src="/static/visual/user.png" class="img-fluid rounded-circle"
+                                    style="height: 40px; width: 40px;">
+                            </a>
+                        </div>
+                        <div id="close-chat" class="col-5 pe-3 d-flex justify-content-end align-items-center">
+                            <a href="#"><i class="fa-regular fa-rectangle-xmark fa-lg"></i></a>
+                        </div>
+                    </div>
+                    <div id="mes" class="ps-2 pe-2 scrollable-bar" style="height: 350px;">
+                    </div>
+                    <div id="newmes-area" class="d-flex shadow-lg p-2">
+                        <form class="input-group w-100" id="mes-form">
+                            <input id="mes-input" type="text" class="form-control fs-6" placeholder="메시지 입력..."
+                                style="height: 40px;">
+                            <button class="rounded" type="submit">보내기</button>
+                        </form>
+                    </div>
+                    <div id="edit-area" class="d-flex shadow-lg p-2 d-none">
+                        <a href="#" id="cancel-edit" style="font-size: small;"
+                            class="border rounded round d-flex text-center align-items-center text-bg-warning text-decoration-none">Cancel
+                            edit</a>
+                        <form class="input-group w-100" id="edit-form">
+                            <input id="edit-input" type="text" class="form-control fs-6" placeholder="메시지 입력..."
+                                style="height: 40px;">
+                            <button class="rounded" type="submit">보내기</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="video-system" class="fixed-top">  
+    </div>
+    <script src="/static/js/home/home.js"></script>
+    <script src="/static/js/navbar.js"></script>
+    <script src="/static/js/message/user/mesUser.js"></script>
+    <script src="/static/js/call.js"></script>
+</body>
+
+</html>

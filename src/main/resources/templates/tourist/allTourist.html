@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>관광지</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=<appKey>"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@stomp/stompjs@7.0.0/bundles/stomp.umd.min.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<style>
+        .image{
+            height: 250px;
+        }
+        .scroll-oneTour {
+          height: 400px; /* Set the height of the container */
+          
+          overflow-y: scroll; /* Enable vertical scrolling */
+          /* border: 1px solid #ddd; */
+      }
+      .scroll-oneTour::-webkit-scrollbar {
+        width: 10px;
+      }
+      .scroll-oneTour::-webkit-scrollbar-thumb {
+        background: #888; /* Color of the scrollbar thumb */
+        border-radius: 10px; /* Rounded corners for the scrollbar thumb */
+      }
+
+      .scroll-oneTour::-webkit-scrollbar-thumb:hover {
+          background: #555; /* Color of the scrollbar thumb on hover */
+      }
+      .navbar-menu:hover .navbar-menu-list {
+            display: block;
+        }
+</style>
+</head>
+
+<body style="font-family: Nanum Myeongjo, serif;">
+    <!-- header navbar -->
+    <nav class="navbar navbar-expand-lg d-flex ps-3 pe-3 shadow-md fixed-top" style="background-color: rgb(253, 249, 251);">
+      <div class="container-fluid" id="navbar"></div>
+    </nav>
+    
+    <div class="mb-5">
+        <div class="col-12">
+          <video width="" height="" autoplay loop muted class="rounded img-fluid">
+            <source src="/static/visual/tourist/seoul.mp4" type="video/mp4">
+            Your browser does not support the video tag.
+          </video>
+      </div>
+    </div>
+    <!-- body -->
+    <div class="ps-3">
+        <div class="d-flex w-100">
+            <div class="d-none d-lg-inline col-3 p-3">
+                <div>
+                    <strong>시군구</strong>
+                    <form id="search-by-city" class="input-group">
+                      <select class="form-select" id="city" aria-label="Example select with button addon">
+                          <option id="code" value="" selected>전체</option>
+                      </select>
+                      <button type="submit" class="btn btn-outline-primary">검색</button>
+                    </form>
+                </div>
+            </div>
+            <div class="col-12 col-lg-9 d-flex flex-wrap">
+                <div id="tourist" class="d-flex flex-wrap w-100">
+                </div>
+                <div class="w-100 d-flex flex-wrap justify-content-center">
+                    <nav aria-label="Page navigation example">
+                        <ul class="pagination pagination-md" >
+                          <div>
+                            <li class="page-item" id="previous">
+                              <a class="page-link" href="#" aria-label="Previous">
+                                <span aria-hidden="true">&laquo;</span>
+                              </a>
+                            </li>
+                          </div>
+                          <div id="pagination" class="w-100 d-flex">
+                            <!-- <li class="page-item"><a class="page-link active" href="#">1</a></li> -->
+                          </div>
+                          <div>
+                            <li class="page-item" id="next">
+                              <a class="page-link" href="#" aria-label="Next">
+                                <span aria-hidden="true">&raquo;</span>
+                              </a>
+                            </li>
+                          </div>
+                          
+                        </ul>
+                      </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="modal" class="d-none container-fluid d-flex justify-content-center align-items-center fixed-top mt-4">
+      <div class="border rounded w-75 bg-light" >
+        <div class="modal-header w-100 d-flex border p-3 justify-content-between">
+          <h5 class="modal-title fw-bold" style="color: darkblue;"><i class="fa-solid fa-place-of-worship"></i> 환영합니다!!!</h5>
+          <button id="close-modal" type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div id="scroll-control" class="w-100 d-flex scroll-oneTour flex-wrap">
+          <div class="col-12 position-relative d-flex flex-wrap justify-content-center">
+            <img id="image-modal" src="" class="img-fluid">
+            <div class="d-none d-lg-flex position-absolute end-0 top-0">
+              <div class="border rounded w-100 d-flex flex-wrap p-2 justify-content-center align-items-center
+              bg-info bg-opacity-75" style="font-family: fantasy; font-weight: bolder;">
+                <h1 id="tour-name" class="w-100 text-center"></h1>
+                <p><i class="fa-solid fa-location-dot"></i> <span id="tour-address"></span></p>
+              </div>
+            </div>
+            <div class="d-none d-lg-flex">
+              <div class="border w-100 d-flex flex-wrap p-2 justify-content-center align-items-center
+              bg-info-subtle bg-opacity-75">
+                <h1>소개</h1>
+                <p id="overview" style="font-size: smaller;">
+                </p>
+              </div>
+            </div>
+          </div>
+          <div id="map" class="w-100 border" style="height: 400px;">
+            
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="video-system" class="fixed-top">  
+    </div> 
+    <script src="/static/js/tourist/oneTourist.js"></script>
+    <script src="/static/js/tourist/allTourist.js"></script>
+    <script src="/static/js/navbar.js"></script>
+    <script src="/static/js/call.js"></script>
+</body>
+
+</html>

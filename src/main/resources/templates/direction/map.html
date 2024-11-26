@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>지도</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+    <script src="https://dapi.kakao.com/v2/maps/sdk.js?appkey=<appKey>"></script>
+    <style>
+        .scrollable-bar {
+            height: 300px; /* Set the height of the container */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            /* border: 1px solid #ddd; */
+        }
+        .scrollable-bar::-webkit-scrollbar {
+            display: none; 
+        }
+        .scroll-car {
+            height: 350px; /* Set the height of the container */
+            overflow-y: scroll; /* Enable vertical scrolling */
+            /* border: 1px solid #ddd; */
+        }
+        .scroll-car::-webkit-scrollbar {
+            display: none; 
+        }
+    </style>
+</head>
+<body style="font-family: Nanum Myeongjo, serif;">
+<div class="m-2 border shadow-lg p-2">
+    <div class="container-fluid d-flex grid gap-0 column-gap-3">
+        <div class="d-none d-md-inline col-4 border shadow-lg">
+            <div class="d-flex flex-wrap pb-3 ps-4 pe-4 pt-2 border-bottom">
+                <div class="w-100 mb-2">
+                    <div class="hstack d-flex justify-content-center">
+                        <h5 class="fw-bold">길찾기</h5>
+                    </div>
+                </div>
+                <div class="w-100">
+                    <form class="input-group" id="search-departure">
+                        <input id="input-departure" type="text" class="form-control" placeholder="출발지" required>
+                        <button class="btn btn-outline-secondary" type="submit">검색</button>
+                    </form>
+                    <form class="input-group mb-3" id="search-arrival">
+                        <input id="input-arrival" type="text" class="form-control" placeholder="도착지" required>
+                        <button class="btn btn-outline-secondary" type="submit">검색</button>
+                    </form>
+                </div>
+                <div class="d-flex justify-content-between w-100">
+                    <a href="/travel/map" class="btn btn-outline-secondary btn-sm" role="button">다시입력</a>
+                    <button class="btn btn-primary btn-sm" type="button" id="direction">길찾기</button>
+                </div>
+            </div>
+            
+            <div class="d-none d-flex flex-wrap p-4 pt-2" id="search">
+                <h4 class="fw-bold">검색 결과</h4>
+                <div class="d-inline scroll-car w-100">
+                    <div class="d-flex flex-wrap" id="research-result">
+
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="d-none d-flex flex-wrap p-2" id="direction-display">
+                <div class="w-100 mb-2 ps-4">
+                    <ul class="nav nav-underline flex-nowrap">
+                        <li class="nav-item">
+                            <a id="tran" class="nav-link active" href="#"><i class="fa-solid fa-bus-simple"></i> 대중교통</a>
+                        </li>
+                        <li class="nav-item">
+                            <a id="car" class="nav-link" href="#"><i class="fa-solid fa-car"></i> 자동차</a>
+                        </li>
+                    </ul>
+                </div>
+                <div class="w-100 d-none" id="dir-tran">
+                    <div class="w-100 mb-2 ps-4" style="font-size: small;">
+                        <ul class="nav nav-underline flex-nowrap">
+                            <li class="nav-item">
+                                <a id="dir-all" class="nav-link active" href="#"><i class="fa-solid fa-train-tram"></i> 전체 <span id="count-all"></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="dir-subway" class="nav-link" href="#"><i class="fa-solid fa-train-subway"></i> 지하철 <span id="count-subway"></span></a>
+                            </li>
+                            <li class="nav-item">
+                                <a id="dir-bus" class="nav-link" href="#"><i class="fa-solid fa-bus-simple"></i> 버스 <span id="count-bus"></span></a>
+                            </li>
+                        </ul>
+                    </div>
+                    <div id="path-area" class="scrollable-bar">
+
+                    </div>
+                </div>
+                <div class="w-100 d-none" id="dir-car">
+                    <div class="scroll-car">
+                        <div id="car1" class="p-4 border rounded mb-2">
+                            <div class="w-100">
+                                <h6 class="text-info fw-bold">1. 실시간 최적 </h6>
+                            </div>
+                            <div class="w-100">
+                                <div class="hstack d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span><b id="car-time1"></b>분</span>
+                                    </div>
+                                    <div class="vr me-2"></div>
+                                    <div class="">
+                                        <span><b id="distance1"></b>km</span>
+                                    </div>
+                                </div> 
+                                <div class="hstack d-flex align-items-center" style="font-size: small;">
+                                    <div class="me-2">
+                                        <span>택시비 <b id="taxiFare1"></b>₩</span>
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="vr me-2"></div>
+                                    </div>
+                                    <div class="me-2">
+                                        <span>통행료 <b id="tollFare1"></b></span>
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="vr me-2"></div>
+                                    </div>
+                                    <div class="">
+                                        <span>연료비 <b id="fuelPrice1"></b>₩</span>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        <div id="car2" class="p-4 border rounded mb-2">
+                            <div class="w-100">
+                                <h6 class="text-info fw-bold">2. 무료 우선 </h6>
+                            </div>
+                            <div class="w-100">
+                                <div class="hstack d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span><b id="car-time2"></b>분</span>
+                                    </div>
+                                    <div class="vr me-2"></div>
+                                    <div class="">
+                                        <span><b id="distance2"></b>km</span>
+                                    </div>
+                                </div> 
+                                <div class="hstack d-flex align-items-center" style="font-size: small;">
+                                    <div class="me-2">
+                                        <span>택시비 <b id="taxiFare2"></b>₩</span>
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="vr me-2"></div>
+                                    </div>
+                                    <div class="me-2">
+                                        <span>통행료 <b id="tollFare2"></b></span>
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="vr me-2"></div>
+                                    </div>
+                                    <div class="">
+                                        <span>연료비 <b id="fuelPrice2"></b>₩</span>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                        <div id="car3" class="p-4 border rounded mb-2">
+                            <div class="w-100">
+                                <h6 class="text-info fw-bold">3. 자동차 전용 도로 회피 우선</h6>
+                            </div>
+                            <div class="w-100">
+                                <div class="hstack d-flex align-items-center">
+                                    <div class="me-2">
+                                        <span><b id="car-time3"></b>분</span>
+                                    </div>
+                                    <div class="vr me-2"></div>
+                                    <div class="">
+                                        <span><b id="distance3"></b>km</span>
+                                    </div>
+                                </div> 
+                                <div class="hstack d-flex align-items-center" style="font-size: small;">
+                                    <div class="me-2">
+                                        <span>택시비 <b id="taxiFare3"></b>₩</span>
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="vr me-2"></div>
+                                    </div>
+                                    <div class="me-2">
+                                        <span>통행료 <b id="tollFare3"></b></span>
+                                    </div>
+                                    <div class="d-flex align-items-end">
+                                        <div class="vr me-2"></div>
+                                    </div>
+                                    <div class="">
+                                        <span>연료비 <b id="fuelPrice3"></b>₩</span>
+                                    </div>
+                                </div> 
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-12 col-lg-8">
+            <div id="map" style="height: 600px;"></div>
+        </div>
+    </div>
+</div>
+<script src="/static/js/direction/map.js"></script>
+</body>
+</html>

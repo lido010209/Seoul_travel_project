@@ -1,0 +1,87 @@
+[20241028 23:36:02:810][INFO ][com.example.travel.TravelApplication] Starting TravelApplication using Java 17.0.9 with PID 58960 (C:\Users\flowe\OneDrive\Documents\LIKELION\Team_project\travel\travel\build\classes\java\main started by Do Lien in C:\Users\flowe\OneDrive\Documents\LIKELION\Team_project\travel\travel)
+[20241028 23:36:02:826][INFO ][com.example.travel.TravelApplication] No active profile set, falling back to 1 default profile: "default"
+[20241028 23:36:05:916][INFO ][o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[20241028 23:36:06:297][INFO ][o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 372 ms. Found 13 JPA repository interfaces.
+[20241028 23:36:07:588][INFO ][o.s.b.w.embedded.tomcat.TomcatWebServer] Tomcat initialized with port 4000 (http)
+[20241028 23:36:07:604][INFO ][o.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-0.0.0.0-4000"]
+[20241028 23:36:07:619][INFO ][o.apache.catalina.core.StandardService] Starting service [Tomcat]
+[20241028 23:36:07:619][INFO ][org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.30]
+[20241028 23:36:07:746][INFO ][o.a.c.c.C.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[20241028 23:36:07:746][INFO ][o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 4823 ms
+[20241028 23:36:07:975][INFO ][o.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+[20241028 23:36:08:088][INFO ][org.hibernate.Version] HHH000412: Hibernate ORM core version 6.5.3.Final
+[20241028 23:36:08:133][INFO ][o.h.c.internal.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+[20241028 23:36:08:609][INFO ][o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+[20241028 23:36:08:658][INFO ][com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[20241028 23:36:09:936][INFO ][com.zaxxer.hikari.pool.HikariPool] HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@4654e373
+[20241028 23:36:09:936][INFO ][com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[20241028 23:36:11:533][INFO ][o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[20241028 23:36:11:695][INFO ][o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[20241028 23:36:12:025][INFO ][o.s.d.j.r.query.QueryEnhancerFactory] Hibernate is in classpath; If applicable, HQL parser will be used.
+[20241028 23:36:15:042][WARN ][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[20241028 23:36:15:169][INFO ][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer] Global AuthenticationManager configured with UserDetailsService bean with name userService
+[20241028 23:36:16:111][INFO ][o.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-0.0.0.0-4000"]
+[20241028 23:36:16:158][INFO ][o.s.b.w.embedded.tomcat.TomcatWebServer] Tomcat started on port 4000 (http) with context path '/'
+[20241028 23:36:16:158][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] Starting...
+[20241028 23:36:16:158][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@67054b2e]]
+[20241028 23:36:16:158][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] Started.
+[20241028 23:36:16:174][INFO ][com.example.travel.TravelApplication] Started TravelApplication in 14.551 seconds (process running for 15.853)
+[20241028 23:37:16:452][INFO ][o.s.w.s.c.WebSocketMessageBrokerStats] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[20241028 23:43:29:518][INFO ][com.example.travel.TravelApplication] Starting TravelApplication using Java 17.0.9 with PID 62276 (C:\Users\flowe\OneDrive\Documents\LIKELION\Team_project\travel\travel\build\classes\java\main started by Do Lien in C:\Users\flowe\OneDrive\Documents\LIKELION\Team_project\travel\travel)
+[20241028 23:43:29:524][INFO ][com.example.travel.TravelApplication] No active profile set, falling back to 1 default profile: "default"
+[20241028 23:43:31:831][INFO ][o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[20241028 23:43:32:290][INFO ][o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 449 ms. Found 13 JPA repository interfaces.
+[20241028 23:43:33:702][INFO ][o.s.b.w.embedded.tomcat.TomcatWebServer] Tomcat initialized with port 4000 (http)
+[20241028 23:43:33:718][INFO ][o.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-0.0.0.0-4000"]
+[20241028 23:43:33:718][INFO ][o.apache.catalina.core.StandardService] Starting service [Tomcat]
+[20241028 23:43:33:718][INFO ][org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.30]
+[20241028 23:43:33:829][INFO ][o.a.c.c.C.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[20241028 23:43:33:829][INFO ][o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 4244 ms
+[20241028 23:43:34:028][INFO ][o.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+[20241028 23:43:34:108][INFO ][org.hibernate.Version] HHH000412: Hibernate ORM core version 6.5.3.Final
+[20241028 23:43:34:155][INFO ][o.h.c.internal.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+[20241028 23:43:34:601][INFO ][o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+[20241028 23:43:34:633][INFO ][com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[20241028 23:43:35:849][INFO ][com.zaxxer.hikari.pool.HikariPool] HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@32646ecf
+[20241028 23:43:35:849][INFO ][com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[20241028 23:43:37:305][INFO ][o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[20241028 23:43:37:465][INFO ][o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[20241028 23:43:37:892][INFO ][o.s.d.j.r.query.QueryEnhancerFactory] Hibernate is in classpath; If applicable, HQL parser will be used.
+[20241028 23:43:40:541][WARN ][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[20241028 23:43:40:652][INFO ][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer] Global AuthenticationManager configured with UserDetailsService bean with name userService
+[20241028 23:43:41:493][INFO ][o.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-0.0.0.0-4000"]
+[20241028 23:43:41:557][INFO ][o.s.b.w.embedded.tomcat.TomcatWebServer] Tomcat started on port 4000 (http) with context path '/'
+[20241028 23:43:41:557][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] Starting...
+[20241028 23:43:41:557][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@d2ce743]]
+[20241028 23:43:41:557][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] Started.
+[20241028 23:43:41:574][INFO ][com.example.travel.TravelApplication] Started TravelApplication in 12.819 seconds (process running for 13.321)
+[20241028 23:44:41:597][INFO ][o.s.w.s.c.WebSocketMessageBrokerStats] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]
+[20241028 23:44:50:495][INFO ][com.example.travel.TravelApplication] Starting TravelApplication using Java 17.0.9 with PID 30376 (C:\Users\flowe\OneDrive\Documents\LIKELION\Team_project\travel\travel\build\classes\java\main started by Do Lien in C:\Users\flowe\OneDrive\Documents\LIKELION\Team_project\travel\travel)
+[20241028 23:44:50:495][INFO ][com.example.travel.TravelApplication] No active profile set, falling back to 1 default profile: "default"
+[20241028 23:44:51:556][INFO ][o.s.d.r.c.RepositoryConfigurationDelegate] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[20241028 23:44:51:824][INFO ][o.s.d.r.c.RepositoryConfigurationDelegate] Finished Spring Data repository scanning in 254 ms. Found 13 JPA repository interfaces.
+[20241028 23:44:52:922][INFO ][o.s.b.w.embedded.tomcat.TomcatWebServer] Tomcat initialized with port 4000 (http)
+[20241028 23:44:52:929][INFO ][o.apache.coyote.http11.Http11NioProtocol] Initializing ProtocolHandler ["http-nio-0.0.0.0-4000"]
+[20241028 23:44:52:943][INFO ][o.apache.catalina.core.StandardService] Starting service [Tomcat]
+[20241028 23:44:52:943][INFO ][org.apache.catalina.core.StandardEngine] Starting Servlet engine: [Apache Tomcat/10.1.30]
+[20241028 23:44:53:038][INFO ][o.a.c.c.C.[Tomcat].[localhost].[/]] Initializing Spring embedded WebApplicationContext
+[20241028 23:44:53:038][INFO ][o.s.b.w.s.c.ServletWebServerApplicationContext] Root WebApplicationContext: initialization completed in 2489 ms
+[20241028 23:44:53:282][INFO ][o.hibernate.jpa.internal.util.LogHelper] HHH000204: Processing PersistenceUnitInfo [name: default]
+[20241028 23:44:53:389][INFO ][org.hibernate.Version] HHH000412: Hibernate ORM core version 6.5.3.Final
+[20241028 23:44:53:459][INFO ][o.h.c.internal.RegionFactoryInitiator] HHH000026: Second-level cache disabled
+[20241028 23:44:54:086][INFO ][o.s.o.j.p.SpringPersistenceUnitInfo] No LoadTimeWeaver setup: ignoring JPA class transformer
+[20241028 23:44:54:134][INFO ][com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Starting...
+[20241028 23:44:55:402][INFO ][com.zaxxer.hikari.pool.HikariPool] HikariPool-1 - Added connection org.sqlite.jdbc4.JDBC4Connection@7b9c2387
+[20241028 23:44:55:404][INFO ][com.zaxxer.hikari.HikariDataSource] HikariPool-1 - Start completed.
+[20241028 23:44:57:211][INFO ][o.h.e.t.j.p.i.JtaPlatformInitiator] HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+[20241028 23:44:57:575][INFO ][o.s.o.j.LocalContainerEntityManagerFactoryBean] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[20241028 23:44:58:177][INFO ][o.s.d.j.r.query.QueryEnhancerFactory] Hibernate is in classpath; If applicable, HQL parser will be used.
+[20241028 23:45:01:791][WARN ][o.s.b.a.o.j.JpaBaseConfiguration$JpaWebConfiguration] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[20241028 23:45:01:999][INFO ][o.s.s.c.a.a.c.InitializeUserDetailsBeanManagerConfigurer$InitializeUserDetailsManagerConfigurer] Global AuthenticationManager configured with UserDetailsService bean with name userService
+[20241028 23:45:03:864][INFO ][o.apache.coyote.http11.Http11NioProtocol] Starting ProtocolHandler ["http-nio-0.0.0.0-4000"]
+[20241028 23:45:03:950][INFO ][o.s.b.w.embedded.tomcat.TomcatWebServer] Tomcat started on port 4000 (http) with context path '/'
+[20241028 23:45:03:950][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] Starting...
+[20241028 23:45:03:950][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@bd211]]
+[20241028 23:45:03:956][INFO ][o.s.m.s.b.SimpleBrokerMessageHandler] Started.
+[20241028 23:45:03:979][INFO ][com.example.travel.TravelApplication] Started TravelApplication in 14.135 seconds (process running for 14.634)
+[20241028 23:46:03:954][INFO ][o.s.w.s.c.WebSocketMessageBrokerStats] WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 1, active threads = 1, queued tasks = 0, completed tasks = 0]

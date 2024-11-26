@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="utf-8" />
+  <link rel="icon" href="https://static.toss.im/icons/png/4x/icon-toss-logo.png" />
+  <link rel="stylesheet" type="text/css" href="/static/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+        integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+        integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="/static/css/home.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
+    
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>토스페이먼츠 결제</title>
+  <!-- SDK 추가 -->
+  <script src="https://js.tosspayments.com/v2/standard"></script>
+</head>
+
+<body>
+<!-- 주문서 영역 -->
+<div id="body" class="wrapper">
+  <div class="w-100 d-flex justify-content-center mt-1 p-3">
+    <div class="border rounded w-100">
+      <h4 class="text-center w-100 text-white" style="background-color:darkblue;">예약 상세</h4>
+      <div class="w-100 d-flex flex-wrap align-items-center">
+        <div class="ps-3 d-none d-lg-inline col-3">
+          <img id="packImage" src="seoul3.png" class="img-fluid">
+        </div>
+        <form class="col-12 col-lg-9 ps-3 pe-3 mb-2">
+          <div class="form-group">
+              <label class="form-label">여행 코스 </label><br>
+              <div id="package-confirm" class="w-100 border p-2 rounded">
+                  <a href="#" class="text-decoration-none">
+                  </a>
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="form-label">일시 </label><br>
+              <div id="schedule" class="w-100 border p-2 rounded">
+              </div>
+          </div>
+          <div class="form-group">
+              <label class="form-label">인원 </label><br>
+              <div id="people" class="w-100 border p-2 rounded">
+                  
+              </div>
+          </div>
+          <div class="form-group">
+              <span id="coupon" class="fw-bold text-bg-warning fs-5"></span>
+              <!-- <div class="w-100 border p-2 rounded">
+                  300,000x3=900,000
+              </div> -->
+          </div><br>
+          <div class="col-12 text-end">
+            금액:<h4 id="totalPay" class="fw-bold"></h4>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <div class="box_section" style="padding: 40px 30px 50px 30px; margin-top: 30px; margin-bottom: 50px">
+    <!-- 결제 UI -->
+    <div id="payment-method"></div>
+    <!-- 이용약관 UI -->
+    <div id="agreement"></div>
+    <!-- 쿠폰 체크박스 -->
+    <div style="padding-left: 30px">
+      <div class="checkable typography--p">
+        <label for="coupon-box" class="checkable__label typography--regular">
+        <!-- <input id="coupon-box" class="checkable__input" type="checkbox" aria-checked="true"/><span class="checkable__label-text">5,000원 쿠폰 적용</span></label> -->
+        <span class="text-bg-danger fw-bold">토스페이먼츠(toss pay)만 가능합니다!!!</span>
+      </div>
+    </div>
+    <!-- 결제하기 버튼 -->
+     <div class="d-flex justify-content-center gap-2">
+      <button class="button" id="payment-button" style="margin-top: 30px">결제하기</button>
+      <button class="button" onclick="location.href='/travel/my-booking';"  style="margin-top: 30px">돌아가기</button>
+     </div>
+  </div>
+  <!-- <div class="box_section" style="padding: 40px 30px 50px 30px; margin-top: 30px; margin-bottom: 50px">
+    브랜드페이만 연동하기
+    <button class="button" id="brandpay-button" style="margin-top: 30px">위젯 없이 브랜드페이만 연동하기</button>
+    결제창만 연동하기
+    <button class="button" id="payment-window-button" style="margin-top: 30px">위젯 없이 결제창만 연동하기</button>
+  </div> -->
+</div>
+<script src="/static/js/payment/checkout.js"></script>
+</body>
+</html>

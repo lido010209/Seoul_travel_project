@@ -1,0 +1,23 @@
+body {
+    background-image:url('/post_fronted/assets/image/login-bg.jpg');
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-color: black; 
+    height: 500px;
+    width: 100%;
+}
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-image: url('duongdan_anh.jpg'); /* Thay đường dẫn ảnh */
+    background-size: cover;
+    background-position: center;
+    filter: blur(8px); /* Làm mờ hình nền */
+    z-index: 0;
+}
